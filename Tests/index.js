@@ -1,13 +1,21 @@
 import { Selector } from 'testcafe';
 
-//a test for the http://devexpress.github.io/testcafe/example 
+//a test for the https://ekumamait.github.io/Profile/UI/ 
 
 fixture `Getting Started`
-    .page `http://devexpress.github.io/testcafe/example`;
+    .page `https://ekumamait.github.io/Profile/UI/`;
 
-test('first test', async t =>{
+test('Profile-headline', async t =>{
     await t
-            .typeText('#developer-name', 'Eric Ebulu')
-            .click('#submit-button')
-            .expect(Selector('#article-header').innerText).eql('Thank you, Eric Ebulu!');
+            .expect(Selector('.profile-headline').innerText).eql('Full-Stack Software Engineer.');
+})
+
+test('Profile', async t =>{
+    await t
+            .typeText('.profile-name', 'Eric Ebulu')
+})
+
+test('Profile-image', async t =>{
+    await t
+            .expect(Selector('.profile-image-wrap').visible).ok();
 })
